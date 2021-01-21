@@ -1,0 +1,91 @@
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0px;
+            background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+            /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+        }
+        
+        nav {
+            /* background-color: rgba(28, 57, 221, 0.295); */
+            height: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        nav span {
+            color: blueviolet;
+            font-size: 35px;
+        }
+        
+        #logo {
+            display: block;
+            height: 95%;
+        }
+        
+        .container {
+            max-width: 70%;
+            background-color: rgba(28, 57, 221, 0.295);
+            min-height: 70vh;
+            margin: 30px auto;
+            position: relative;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 0px 0px 7px 6px rgb(0 0 0 / 38%);
+            border-radius: 10px;
+            padding-bottom: 100px;
+        }
+        
+        .message {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 38%);
+            color: white;
+            background-color: rgb(0, 183, 255);
+            padding: 15px;
+            font-size: 20px;
+            margin: 10px;
+            clear: both;
+        }
+        
+        .left {
+            float: left;
+        }
+        
+        .right {
+            float: right;
+        }
+        
+        .send-container {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            bottom: 10px;
+            right: 0px;
+            left: 0px;
+            text-align: center;
+            justify-content: center;
+            padding: 0px 10px;
+            align-items: center;
+        }
+        
+        input[type=text] {
+            width: 85%;
+            padding: 10px 15px;
+            margin-right: 10px;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border-radius: 10px;
+            background-color: aqua;
+            font-size: 18px;
+            outline-style: none;
+            cursor: pointer;
+            border: 2px solid red;
+        }
