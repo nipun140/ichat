@@ -1,3 +1,14 @@
+///animate the input name form 
+let modal = document.querySelector('.modal');
+let nameForm = document.querySelector('.enterChatForm');
+let nameInp = document.querySelector('#nameInp');
+
+window.addEventListener('load', (event) => {
+    setTimeout(() => {
+        nameForm.style.display = 'flex';
+    }, 500)
+});
+
 const socket = io('https://infinite-ravine-90571.herokuapp.com');
 // Get DOM elements in respective Js variables
 const form = document.querySelector('.send-container');
@@ -22,8 +33,18 @@ function appendCenter(message) {
     messageContainer.insertBefore(centerElem, form);
 }
 
-const name = prompt('enter your name?');
-socket.emit('new-user-joined', name); //socket.emmit is used to send custom events to node server
+//enter name from form
+nameForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    var name = nameInp.value;
+    nameForm.style.animation = 'moveMoreDown 1s forwards';
+
+    nameForm.addEventListener("webkitAnimationEnd", () => {
+        modal.style.display = 'none';
+        console.log(name)
+        socket.emit('new-user-joined', name); //socket.emmit is used to send custom events to node server
+    });
+})
 
 //event listener ,listening to the event sent by nodeServer
 socket.on('user-joined', name => {
@@ -32,7 +53,6 @@ socket.on('user-joined', name => {
 })
 
 form.addEventListener('submit', (event) => {
-    console.log('submitted')
     event.preventDefault();
     let message = messageInp.value;
     append(`<span>You:</span> ${message}`, 'right');

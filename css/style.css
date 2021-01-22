@@ -106,3 +106,89 @@
             cursor: pointer;
             border: 2px solid red;
         }
+        
+        .modal {
+            background-color: rgba(0, 0, 0, 0.645);
+            position: absolute;
+            z-index: 1;
+            right: 0px;
+            left: 0px;
+            bottom: 0px;
+            top: 0px;
+            overflow: hidden;
+        }
+        
+        .enterChatForm #title {
+            color: white;
+            text-shadow: 3px 3px 5px black;
+            text-align: center;
+        }
+        
+        .enterChatForm {
+            position: absolute;
+            z-index: 2;
+            width: 65%;
+            background-color: rgb(209, 68, 214);
+            border-radius: 20px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            animation: moveDown 1s forwards;
+        }
+        
+        @keyframes moveDown {
+            from {
+                top: -15%
+            }
+            to {
+                top: 50%;
+            }
+        }
+        
+        @keyframes moveMoreDown {
+            from {
+                top: 50%
+            }
+            to {
+                top: 115%;
+            }
+        }
+        
+        .enterChatForm input {
+            display: block;
+            width: 100%;
+            margin: 0px;
+            border-radius: 5px;
+            background-color: transparent;
+            border: 2px solid black;
+            outline: none;
+            color: white;
+            font-size: 20px !important;
+            text-align: center;
+        }
+        
+        .enterChatForm input::placeholder {
+            text-align: center;
+            color: white;
+        }
+        
+        .enterChatForm input:hover,
+        .enterChatForm button:hover {
+            background-color: blueviolet;
+            border-radius: 30px;
+        }
+        
+        .enterChatForm button {
+            margin-top: 10px;
+            background-color: #580854;
+            border-radius: 5px;
+            outline: none;
+            border: 2px solid black;
+            color: white;
+            font-size: 20px !important;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
