@@ -3,6 +3,12 @@ let modal = document.querySelector('.modal');
 let nameForm = document.querySelector('.enterChatForm');
 let nameInp = document.querySelector('#nameInp');
 
+//window close event////
+window.onbeforeunload = function(event) {
+    event.returnValue = "are you sure?";
+
+};
+
 window.addEventListener('load', (event) => {
     setTimeout(() => {
         nameForm.style.display = 'flex';
