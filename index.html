@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
-    <script defer src="https://infinite-ravine-90571.herokuapp.com/socket.io/socket.io.js"></script>
+    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
     <script defer src="js/client.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -17,7 +17,10 @@
         <span>i-chat App</span>
         <img id="logo" src="images/chat.png" alt="logo" />
     </nav>
-    <p id="users"></p>
+    <div class="stickyCon">
+        <p id="users"></p>
+        <p class="center red"></p>
+    </div>
     <!-- main container  -->
     <div class="container">
         <!-- <div class="message left"><span>nipun:</span> hello</div>

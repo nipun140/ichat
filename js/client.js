@@ -6,6 +6,7 @@ var audio = new Audio('images/ting.mp3');
 let modal = document.querySelector('.modal');
 let nameForm = document.querySelector('.enterChatForm');
 let nameInp = document.querySelector('#nameInp');
+let typingMsg = document.querySelector('.center.red');
 
 //window close event
 window.onbeforeunload = function(event) {
@@ -37,6 +38,17 @@ function appendCenter(message) {
     messageContainer.insertBefore(centerElem, form);
 }
 
+//for inserting typing messages 
+function insert(message) {
+    typingMsg.innerHTML = message;
+}
+
+//for removing typing messages
+function remove() {
+    typingMsg.innerHTML = '';
+}
+
+
 //enter name from form
 nameForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -46,7 +58,7 @@ nameForm.addEventListener('submit', (event) => {
     nameForm.addEventListener("webkitAnimationEnd", () => { //after animation ends i.e from goes down
         modal.style.display = 'none';
 
-        const socket = io('https://infinite-ravine-90571.herokuapp.com'); ////////////CONECTION TO NODESERVER//////////////////////
+        const socket = io('http://localhost:8000'); ////////////CONECTION TO NODESERVER//////////////////////
         socket.emit('new-user-joined', name); //socket.emmit is used to send custom events to node server
 
         //event listener ,listening to the event sent by nodeServer
@@ -57,9 +69,26 @@ nameForm.addEventListener('submit', (event) => {
 
         //display the users in the p tag in inedx.html
         socket.on('displayUsers', users => {
-            console.log('display users');
             var myArray = Object.values(users);
             document.getElementById("users").innerHTML = `<span>In The Meeting:</span> ${myArray}`;
+        })
+
+        //on focusing the input type text to enter the message
+        messageInput.addEventListener('focus', () => {
+            socket.emit('typing', name);
+        })
+
+        socket.on('showTyping', name => {
+            insert(`<span>${name}</span> is typing...`);
+        })
+
+        //on focusing out of the input type text to enter the message
+        messageInput.addEventListener('focusout', () => {
+            socket.emit('notyping', name);
+        })
+
+        socket.on('removeTyping', name => {
+            remove();
         })
 
         form.addEventListener('submit', (event) => {
@@ -69,6 +98,7 @@ nameForm.addEventListener('submit', (event) => {
             socket.emit('send', message); //sending a 'send' event to the node server
             messageInp.value = '';
         })
+
 
         //event listener ,listening to the event 'recieve' sent by nodeServer //data is an object
         socket.on('receive', data => {
