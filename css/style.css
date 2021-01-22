@@ -5,7 +5,6 @@
         body {
             margin: 0px;
             background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-            /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
         }
         
         nav {
@@ -26,6 +25,16 @@
         #logo {
             display: block;
             height: 95%;
+        }
+        
+        #users {
+            text-align: center;
+            font-size: 23px;
+            color: #9f00ff;
+        }
+        
+        #users span {
+            color: black !important;
         }
         
         .container {
@@ -95,16 +104,31 @@
             width: 85%;
             padding: 10px 15px;
             margin-right: 10px;
+            border: 2px solid #001dff;
+            border-radius: 28px;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        
+        input[type=text]:hover {
+            background-color: white;
+        }
+        
+        input[type=text]::placeholder {
+            font-size: 20px;
+            color: black;
         }
         
         .btn {
-            padding: 10px 15px;
+            outline: none;
+            padding: 7px 15px;
             border-radius: 10px;
-            background-color: aqua;
+            background-color: transparent;
             font-size: 18px;
             outline-style: none;
             cursor: pointer;
-            border: 2px solid red;
+            border: 2px solid #001dff;
         }
         
         .modal {
