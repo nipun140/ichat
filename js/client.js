@@ -58,7 +58,7 @@ nameForm.addEventListener('submit', (event) => {
     nameForm.addEventListener("webkitAnimationEnd", () => { //after animation ends i.e from goes down
         modal.style.display = 'none';
 
-        const socket = io('http://localhost:8000'); ////////////CONECTION TO NODESERVER//////////////////////
+        const socket = io('https://infinite-ravine-90571.herokuapp.com'); ////////////CONECTION TO NODESERVER//////////////////////
         socket.emit('new-user-joined', name); //socket.emmit is used to send custom events to node server
 
         //event listener ,listening to the event sent by nodeServer
