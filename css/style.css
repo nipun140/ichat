@@ -38,9 +38,9 @@
         }
         
         .container {
-            max-width: 70%;
+            max-width: 90%;
             background-color: rgba(28, 57, 221, 0.295);
-            min-height: 70vh;
+            min-height: 65vh;
             margin: 30px auto;
             position: relative;
             padding: 20px;
@@ -51,14 +51,15 @@
         }
         
         .message {
-            width: 40%;
+            width: 90%;
             border-radius: 10px;
             box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 38%);
             color: white;
             background-color: rgb(0, 183, 255);
             padding: 15px;
             font-size: 20px;
-            margin: 10px;
+            margin-bottom: 10px;
+            margin-top: 10px;
             clear: both;
         }
         
@@ -68,6 +69,8 @@
             text-align: center;
             font-size: 18px;
             letter-spacing: 1px;
+            margin: 0px;
+            padding: 2px 0;
         }
         
         .center span {
