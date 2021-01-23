@@ -84,8 +84,21 @@
         }
         
         .red {
-            letter-spacing: 1.1px;
             color: red;
+            animation: move 2s infinite;
+            letter-spacing: 0.5px;
+        }
+        
+        @keyframes move {
+            0% {
+                letter-spacing: 0.5px;
+            }
+            50% {
+                letter-spacing: 2px;
+            }
+            100% {
+                letter-spacing: 0.5px;
+            }
         }
         
         .center span {
